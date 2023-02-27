@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:post_api/Controller/user_controller.dart';
+import 'package:post_api/Screens/add_user_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,6 +14,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const AddUserScreen()));
+        },
+        child: const Icon(Icons.add),
+      ),
       body: FutureBuilder(
         future: getUser(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -37,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   trailing: IconButton(
                       onPressed: () async {
-                        await deleteUser(824);
+                        await deleteUser(901);
                         setState(() {});
                       },
                       icon: const Icon(

@@ -19,3 +19,11 @@ deleteUser(id) async {
   var response = await http.delete(uri);
   print(response.body);
 }
+
+addUser(data) async {
+  var url = "https://maaz-api.tga-edu.com/api/users";
+  var uri = Uri.parse(url);
+  var response = await http.post(uri,
+      body: jsonEncode(data), headers: {'content-type': 'application/json'});
+  print(response.body);
+}
